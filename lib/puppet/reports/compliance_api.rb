@@ -12,12 +12,12 @@ Puppet::Reports.register_report(:compliance_api) do
   queue        = config['queue'] || 'reports'
   uri          = URI("#{config['uri']}/q/#{queue}")
   HTTP         = Net::HTTP.new(uri.host, uri.port)
-  REQUEST      = Net::HTTP::Post.new(uri.request_uri, header)
+  REQUEST      = Net::HTTP::Post.new(uri.request_uri)
 
   def process
     # TODO: Use certificate auth
 
-    REQUEST.body = user.to_json
+    REQUEST.body = self.to_json
     HTTP.request(REQUEST)
 
   end
