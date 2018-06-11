@@ -15,7 +15,7 @@ Puppet::Reports.register_report(:compliance_api) do
   def process
     # TODO: Use certificate auth
 
-    CONN.post("/q/#{QUEUE}", JSON.generate(self))
+    CONN.post("/q/#{QUEUE}", self.to_json)
 
   end
 end
