@@ -8,8 +8,8 @@ Puppet::Reports.register_report(:compliance_api) do
   configfile = File.join([File.dirname(Puppet.settings[:config]), "compliance_api.yaml"])
   raise(Puppet::ParseError, "compliance_api report config file #{configfile} not readable") unless File.exist?(configfile)
   config = YAML.load_file(configfile)
-  queue  = config['queue'] || 'reports'
-  uri    = URI("#{config['uri']}/q/#{queue}")
+  uri    = URI(config['uri'])
+  QUEUE  = config['queue'] || 'reports'
   CONN   = Net::HTTP.new(uri)
 
   def process
