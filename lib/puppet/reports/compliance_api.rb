@@ -17,7 +17,7 @@ Puppet::Reports.register_report(:compliance_api) do
   def process
     # TODO: Use certificate auth
 
-    REQUEST.body = self.to_json
+    REQUEST.body = "value=#{self.to_json}"
     HTTP.request(REQUEST)
 
   end
