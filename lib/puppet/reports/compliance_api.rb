@@ -19,7 +19,7 @@ Puppet::Reports.register_report(:compliance_api) do
 
     # Test removal of semicolons
     json_report = self.to_json.gsub(';','')
-    REQUEST.body = URI.escape("value=#{self.to_json}")
+    REQUEST.body = URI.escape("value=#{json_report}")
     HTTP.request(REQUEST)
 
   end
