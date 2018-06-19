@@ -17,7 +17,9 @@ Puppet::Reports.register_report(:compliance_api) do
   def process
     # TODO: Use certificate auth
 
-    REQUEST.body = URI.escape("value=#{self.to_json}").gsub(';','%3B')
+    # Test removal of semicolons
+    json_report = self.to_json.gsub(';','')
+    REQUEST.body = URI.escape("value=#{self.to_json}")
     HTTP.request(REQUEST)
 
   end
