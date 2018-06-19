@@ -17,7 +17,7 @@ Puppet::Reports.register_report(:compliance_api) do
   def process
     # TODO: Use certificate auth
 
-    REQUEST.body = URI.escape("value=#{self.to_json}")
+    REQUEST.body = URI.escape("value=#{self.to_json}").gsub(';','%3B')
     HTTP.request(REQUEST)
 
   end
