@@ -1,5 +1,5 @@
 {
-  "name": "dylanratcliffe-complance_api",
+  "name": "dylanratcliffe-kriterion",
   "version": "0.1.0",
   "author": "Dylan Ratcliffe",
   "summary": "",
@@ -52,7 +52,7 @@
       "version_requirement": ">= 4.7.0 < 6.0.0"
     }
   ],
-  "pdk-version": "1.5.0",
+  "pdk-version": "1.7.0",
   "template-url": "file:////Users/dylan/git/DBS/pdk-templates",
   "template-ref": "heads/master-0-g6af04c0"
 }

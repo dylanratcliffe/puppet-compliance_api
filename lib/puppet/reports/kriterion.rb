@@ -3,11 +3,11 @@ require 'puppet'
 require 'net/http'
 require 'uri'
 
-Puppet::Reports.register_report(:compliance_api) do
-  desc "Sends reports to compliance_api"
+Puppet::Reports.register_report(:kriterion) do
+  desc "Sends reports to kriterion"
 
-  configfile   = File.join([File.dirname(Puppet.settings[:config]), "compliance_api.yaml"])
-  raise(Puppet::ParseError, "compliance_api report config file #{configfile} not readable") unless File.exist?(configfile)
+  configfile   = File.join([File.dirname(Puppet.settings[:config]), "kriterion.yaml"])
+  raise(Puppet::ParseError, "kriterion report config file #{configfile} not readable") unless File.exist?(configfile)
   config       = YAML.load_file(configfile)
   queue        = config['queue'] || 'reports'
   uri          = URI("#{config['uri']}/q/#{queue}")
